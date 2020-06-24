@@ -1,0 +1,52 @@
+﻿@page
+@model WonderPlace.Pages.Places.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Kraj)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Kraj)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Opis)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Opis)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Miejsce)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Miejsce)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Zdjecie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Zdjecie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Kontynent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Kontynent)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Place.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./AllPlace">Back to List</a>
+    </form>
+</div>

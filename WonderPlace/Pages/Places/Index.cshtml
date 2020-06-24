@@ -1,0 +1,30 @@
+﻿@page "{searchString?}"
+@model WonderPlace.Pages.Places.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Wonder Place</h2>
+
+
+@foreach (var item in Model.Place)
+{
+    <dl class="dl-horizontal">
+
+        <dt>
+        </dt>
+        <dd>
+            <img src="@Html.DisplayFor(modelItem => item.Zdjecie)" alt="Brak Obrazka" height="300" width="500"> <br />
+        </dd>
+        <dt> </dt>
+        <dd>@Html.DisplayFor(modelItem => item.Miejsce)</dd>
+        <dt>  </dt>
+        <dd>
+            <blockquote>
+                <p>  @Html.DisplayFor(modelItem => item.Opis)</p>
+            </blockquote>
+
+        </dd>
+    </dl>
+}

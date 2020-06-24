@@ -1,0 +1,49 @@
+﻿@page
+@model WonderPlace.Pages.Places.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Kraj)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Kraj)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Opis)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Opis)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Miejsce)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Miejsce)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Zdjecie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Zdjecie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Place.Kontynent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Place.Kontynent)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Place.ID">Edit</a> |
+    <a asp-page="./AllPlace">Back to List</a>
+</div>

@@ -1,0 +1,55 @@
+﻿@page
+@model WonderPlace.Pages.Places.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Place</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Place.ID" />
+            <div class="form-group">
+                <label asp-for="Place.Kraj" class="control-label"></label>
+                <input asp-for="Place.Kraj" class="form-control" />
+                <span asp-validation-for="Place.Kraj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Opis" class="control-label"></label>
+                <input asp-for="Place.Opis" class="form-control" />
+                <span asp-validation-for="Place.Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Miejsce" class="control-label"></label>
+                <input asp-for="Place.Miejsce" class="form-control" />
+                <span asp-validation-for="Place.Miejsce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Zdjecie" class="control-label"></label>
+                <input asp-for="Place.Zdjecie" class="form-control" />
+                <span asp-validation-for="Place.Zdjecie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place.Kontynent" class="control-label"></label>
+                <input asp-for="Place.Kontynent" class="form-control" />
+                <span asp-validation-for="Place.Kontynent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./AllPlace">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

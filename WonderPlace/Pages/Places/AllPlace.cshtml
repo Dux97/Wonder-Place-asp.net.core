@@ -1,0 +1,75 @@
+﻿
+@page
+@model WonderPlace.Pages.Places.AllPlaceModel
+
+@{
+    ViewData["Title"] = "AllPlace";
+}
+
+<h2>Wspaniałe Miejsca</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="PlaceKontynent" asp-items="Model.Kontynents">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="searchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+@foreach (var item in Model.Place)
+{
+<dl class="dl-horizontal">
+
+    <dt>
+       
+    </dt>
+    <dd>
+        <img src="@Html.DisplayFor(modelItem => item.Zdjecie)" alt="BrakZdjecia" height="300" width="500"> <br />
+    </dd>
+    <dt></dt>
+    <dd>@Html.DisplayFor(modelItem => item.Miejsce)</dd>
+    <dt></dt>
+    <dd>@Html.DisplayFor(modelItem => item.Kontynent)</dd>
+    <dt> </dt>
+    <dd>
+        <blockquote>
+            <p>  @Html.DisplayFor(modelItem => item.Opis)</p>
+        </blockquote>
+        @if ((await AuthorizationService.AuthorizeAsync(
+           User, item,
+           PlaceOperations.Update)).Succeeded)
+        {
+            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+            <text> | </text>
+        }
+        @if ((await AuthorizationService.AuthorizeAsync(
+   User, item,
+   PlaceOperations.Delete)).Succeeded)
+        {
+            <a asp-page="Delete" asp-route-id="@item.ID">Delete</a>
+            <text> | </text>
+        }
+        @if ((await AuthorizationService.AuthorizeAsync(
+    User, item,
+    PlaceOperations.Read)).Succeeded)
+        {
+            <a asp-page="Details" asp-route-id="@item.ID">Details</a>
+            <text> | </text>
+        }
+
+      
+        
+    </dd>
+    <dt>
+       
+    </dt>
+    <dd>@Html.DisplayFor(modelItem => item.Status)</dd>
+
+</dl>
+}
